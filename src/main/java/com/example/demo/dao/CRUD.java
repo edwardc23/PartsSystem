@@ -12,7 +12,8 @@ import org.hibernate.cfg.Configuration;
 public class CRUD {
 
 
-    public void createUser(String userName, String password) {
+
+    public static void createUser(String userName, String password) {
 
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Admin.class)
@@ -41,7 +42,7 @@ public class CRUD {
 
 
     }
-    public void createParts(String partName,String location, String make, String model, String year,double msrp, double price) {
+    public static void createParts(String partName,String location, String make, String model, String year,double msrp, double price) {
 
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Parts.class)
