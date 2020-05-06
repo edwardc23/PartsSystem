@@ -3,6 +3,7 @@ package com.example.demo.rest;
 
 import com.example.demo.dao.CRUD;
 import com.example.demo.dao.DAO;
+import com.example.demo.entity.Admin;
 import com.example.demo.entity.Parts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +13,11 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 
-public class PartsController {
+public class Controller {
     private final DAO dao;
 
     @Autowired
-    public PartsController(DAO dao) {this.dao = dao;}
+    public Controller(DAO dao) {this.dao = dao;}
 
     //grabs entire inventory listing
     @GetMapping("/grabInventory")
@@ -52,11 +53,19 @@ public class PartsController {
     }
 
     //adds and stores a new item
-    @PostMapping("/add")
+    @PostMapping("/addItem")
     public Parts addItem(@RequestBody Parts item){
         item.setId(0);
         dao.saveNew(item);
         return item;
+    }
+
+    @PostMapping("/addAdmin")
+    public Admin addAdmin(@RequestBody Admin admin){
+       CRUD.createUser(admin.getUserName(), admin.getPassword());
+//       admin.setUserName("Test");
+//       admin.setPassword("Psswd123");
+       return admin;
     }
 
     @DeleteMapping("/delete/{itemID}")
