@@ -17,6 +17,7 @@ public class PartsDAOImpl implements DAO{
     public PartsDAOImpl(EntityManager manager){this.manager=manager;}
 
     @Override
+    @Transactional
     public List<Parts> listInventory() {
         sesh = manager.unwrap(Session.class);
         Query<Parts> listQuery = sesh.createQuery("Entire item inventory:");
@@ -24,6 +25,7 @@ public class PartsDAOImpl implements DAO{
     }
 
     @Override
+    @Transactional
     public void clearInventory(List<Parts> inventory) {
         sesh = manager.unwrap(Session.class);
         Query<Parts> clearQuery = sesh.createQuery("Clear entire inventory");
