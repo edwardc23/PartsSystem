@@ -1,6 +1,7 @@
 package com.example.demo.rest;
 
 
+import com.example.demo.dao.CRUD;
 import com.example.demo.dao.DAO;
 import com.example.demo.entity.Parts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,9 @@ public class PartsController {
     public Parts item(@PathVariable int partID){
         Parts item = dao.findID(partID);
         if(item == null){
-            throw new RuntimeException("Couldnt find an item in inventory with ID:" + partID);
+            throw new RuntimeException("Couldn't find an item in inventory with ID:" + partID);
         }
+
         return item;
     }
 
