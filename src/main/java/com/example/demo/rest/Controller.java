@@ -62,17 +62,23 @@ public class Controller {
 
     @PostMapping("/addAdmin")
     public Admin addAdmin(@RequestBody Admin admin){
+        System.out.println(admin);
        CRUD.createUser(admin.getUserName(), admin.getPassword());
 //       admin.setUserName("Test");
 //       admin.setPassword("Psswd123");
+
        return admin;
     }
-
+    @PostMapping("/checkAdmin")
+    public boolean checker(@RequestBody Admin admin)
+    {
+       return CRUD.checkUserAndPass(admin);
+    }
     @DeleteMapping("/delete/{itemID}")
     public String removeItem(@PathVariable int partID){
         Parts item = dao.findID(partID);
         if(item == null){
-            throw new RuntimeException("Couldnt find an item in inventory with ID:" + partID);
+            throw new RuntimeException("Couldn't find an item in inventory with ID:" + partID);
         }
         dao.deleteID(partID);
         return "Deleted item from inventory with ID:" + partID;

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
 
 
 public class CRUD {
@@ -71,6 +72,19 @@ public class CRUD {
 
 
     }
+    public static boolean checkUserAndPass(Admin admin)
+    {
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Admin.class)
+                .buildSessionFactory();
+
+        //create a session this is for hibernate
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        List info= session.createQuery("From Admin").list();
+        factory.close();
+        return  check(info,admin);
+    }
 //    public void readCustomerRow(int id){
 //        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
 //                .addAnnotatedClass(Customer.class)
@@ -126,13 +140,23 @@ public class CRUD {
 //
 //
 //    }
-//    public void printC(List<Customer>e)
-//    {
-//        for(Customer a:e)
-//        {
-//            System.out.println(a);
-//        }
-//    }
+
+    public static boolean check(List<Admin>e, Admin admin)
+    {
+
+        for(Admin a:e)
+        {
+            if(admin.getUserName().equals(a.getUserName()))
+            {
+                if(admin.getPassword().equals(a.getPassword()))
+                {
+
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 //    public void printT(List<TrainTicket>e)
 //    {
 //        for(TrainTicket a:e)
