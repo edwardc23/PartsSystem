@@ -11,7 +11,7 @@ public class Admin {
     @Column(name="ID")
     private int id;
 
-    @Column(name="userName")
+    @Column(name="Username")
     private String userName;
 
     @Column(name="Password")
