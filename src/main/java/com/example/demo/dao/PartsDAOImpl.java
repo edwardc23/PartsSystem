@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import java.util.List;
+
 @Repository
 public class PartsDAOImpl implements DAO{
     private EntityManager manager;
