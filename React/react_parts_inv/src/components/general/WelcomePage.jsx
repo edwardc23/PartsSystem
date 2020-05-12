@@ -8,6 +8,7 @@ function WelcomePage(){
             <h1>Welcome to the Inventory Tracker</h1>
             <br></br>
             <h2>This is an adjustment</h2>
+            <button type="button">Login</button>
             
             </div>
 
