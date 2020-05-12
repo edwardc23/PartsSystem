@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { Component } from 'react';
-
-class ShowInventory extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
-}
-=======
 import React from 'react'
 import { Component } from 'react';
 import ControllerDataServices from '../../services-HTTP/ControllerDataServices';
@@ -71,5 +58,4 @@ class ShowInventory extends Component {
         )
     }
 }
->>>>>>> Srat
 export default ShowInventory
