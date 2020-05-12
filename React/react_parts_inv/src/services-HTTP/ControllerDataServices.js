@@ -39,3 +39,4 @@ class ControllerDataServices {
         return axios.delete(`http://localhost:8080/delete/${itemID}`)
     }
 }
+export default new ControllerDataServices()

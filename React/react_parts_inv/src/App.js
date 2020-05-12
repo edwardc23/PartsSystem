@@ -3,19 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import HeaderComponent from './components/general/HeaderComponent';
 import FooterComponent from './components/general/FooterComponent';
+import RoutingComponent from './components/general/RoutingComponent';
 
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <HeaderComponent>
-          <div>
-
-          </div>
-        </HeaderComponent>
-      </header>
       <div>
-        <FooterComponent/>
+        <RoutingComponent/>
       </div>
     </div>
   );
