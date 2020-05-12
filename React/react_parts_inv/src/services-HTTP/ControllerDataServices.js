@@ -21,11 +21,11 @@ class ControllerDataServices {
         return axios.post(`http://localhost:8080/addItem`);
     }
 
-    addAdmin(){
+    addAdmin(){ //for admin component**
         return axios.post(`http://localhost:8080/addAdmin`);
     }
 
-    check(){
+    check(){ //for admin component**
         return axios.post(`http://localhost:8080/checkAdmin`)
     }
     //_____________________________________________________________________________
