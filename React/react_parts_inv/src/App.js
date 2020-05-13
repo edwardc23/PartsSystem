@@ -4,6 +4,7 @@ import './App.css';
 import HeaderComponent from './components/general/HeaderComponent';
 import FooterComponent from './components/general/FooterComponent';
 import RoutingComponent from './components/general/RoutingComponent';
+import './bootstrap.css';
 
 function App() {
   return (
