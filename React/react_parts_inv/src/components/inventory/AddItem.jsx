@@ -36,7 +36,7 @@ class Item extends Component {
             price: this.state.price
         }
         ControllerDataServices.addItem(item)
-        .then(this.props.history.push(`/AddItem`))
+        .then(this.props.history.push(`/inventory`))
     }
 
     render(){

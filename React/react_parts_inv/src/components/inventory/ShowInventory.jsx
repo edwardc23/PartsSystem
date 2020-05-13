@@ -41,6 +41,21 @@ class ShowInventory extends Component {
 
     } //end clearInventory()
 
+    addItemSwitch(){
+        console.log('Add item button clicked')
+        .then(
+            this.props.history.push(`/UpdateItem`)
+        )
+
+    }//end addItemSwitch()
+
+    updateItemSwitch(){
+        console.log('Update button clicked')
+        .then(
+            this.props.history.push(`/AddItem`)
+        )
+    } //end updateItemSwitch()
+
     displayInventory(){
         console.log('Displaying inventory')
         ControllerDataServices.listInventory()
@@ -80,6 +95,8 @@ class ShowInventory extends Component {
                                 <td>{inventory.price}</td>
                                 <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Deleted item</button></td>
                                 <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add New Item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Add New Item</button></td>
                             </tr>
                         )
                     }
