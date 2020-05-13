@@ -14,12 +14,12 @@ class Login extends Component{
         //handles go here
     }
     onSubmit(vals){
-        let Inventory = {
+        let user = {
             Username: vals.Username,
             Password: vals.Password
             
         }
-        ControllerDataServices.check(this)
+        ControllerDataServices.check(user)
     }
     render(){
         return(
@@ -28,7 +28,10 @@ class Login extends Component{
                 <input type="text"/>
                 <p>Password:</p>
                 <input type="text"/>
+                <br></br>
+                <button type="submit" form="form" value="Submit" onClick="ControllerDataServices.check(user)">Submit</button>
             </form>
+            
         );
     }
     

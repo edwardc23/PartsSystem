@@ -20,7 +20,7 @@ class Inventory extends Componenet {
     }
 
     onSubmit(vals){
-        let Inventory = {
+        let item = {
             id: this.state.id,
             name: vals.name,
             location: vals.location,

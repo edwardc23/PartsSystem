@@ -2,8 +2,8 @@ import axios from 'axios'
 
 class ControllerDataServices {
     //UPDATE requests
-    updateItem(){
-        return axios.put(`http://localhost:8080/update`);
+    updateItem(item){
+        return axios.put(`http://localhost:8080/update`,item);
     }
     //________________________________________________________________________
     
@@ -11,18 +11,18 @@ class ControllerDataServices {
     listInventory(){
         return axios.get(`http://localhost:8080/grabInventory`);
     }
-    getItem(){
+    getItem(itemID){
         return axios.get(`http://localhost:8080/retrieveItem/${itemID}`);
     }
     //__________________________________________________________________________
 
     //POST requests
-    addItem(){
-        return axios.post(`http://localhost:8080/addItem`);
+    addItem(item){
+        return axios.post(`http://localhost:8080/addItem`,item);
     }
 
-    addAdmin(){ //for admin component**
-        return axios.post(`http://localhost:8080/addAdmin`);
+    addAdmin(admin){ //for admin component**
+        return axios.post(`http://localhost:8080/addAdmin`,admin);
     }
 
     check(){ //for admin component**
@@ -35,7 +35,7 @@ class ControllerDataServices {
         return axios.delete(`http://localhost:8080/deleteStockList`);
     }
 
-    deleteItem(){
+    deleteItem(itemID){
         return axios.delete(`http://localhost:8080/delete/${itemID}`)
     }
 }
