@@ -72,6 +72,7 @@ public class Controller {
     @PostMapping("/checkAdmin")
     public boolean checker(@RequestBody Admin admin)
     {
+        System.out.println("Hello");
        return CRUD.checkUserAndPass(admin);
     }
     @DeleteMapping("/delete/{itemID}")
