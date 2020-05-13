@@ -48,11 +48,12 @@ class ShowInventory extends Component {
                 this.setState({inventory: response.data})
             }
         )
+        this.props.history.push(`/inventory}`)
     } //end displayInventory()
 
     render(){
         return(
-            <div>
+            <div className="table-bordered">
 
             </div>
         )
