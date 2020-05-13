@@ -6,6 +6,7 @@ class ShowInventory extends Component {
     constructor(props){
         super(props)
         this.state = {
+            //id: this.props.match.params.id,
             inventory: [],
             msg: null
             //msg: console.log(null)
@@ -19,7 +20,7 @@ class ShowInventory extends Component {
         this.displayInventory();
     } //end componentDidMount
 
-    deleteItem(){
+    deleteItem(id){
         console.log('Delete item')
         ControllerDataServices.deleteItem(id)
         .then(
