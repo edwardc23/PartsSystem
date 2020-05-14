@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ShowInventory from '../inventory/ShowInventory'
 
 import Testcomponent from '../../Testcomponent'
+import AddAdmin from '../admin/AddAdmin'
 class RoutingComponent extends Component{
     render(){
         return(
@@ -19,6 +20,7 @@ class RoutingComponent extends Component{
                     <Switch>
                         <Route exact path="/"><WelcomePage/></Route> />
                         <Route path="/login" component={Login} />
+                        <Route path="/addAdmin" component={AddAdmin} />
                         <Route path="/inventory" component={ShowInventory} />
                         <Route path="/AddItem" component={AddItem} />
                         <Route path="/UpdateItem" component={UpdateItem} />
