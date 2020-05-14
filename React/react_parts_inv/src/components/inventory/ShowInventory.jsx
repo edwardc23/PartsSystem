@@ -13,13 +13,21 @@ class ShowInventory extends Component {
         }
         this.displayInventory = this.displayInventory.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
+        this.updateItemSwitch = this.updateItemSwitch.bind(this)
         this.clearInventory = this.clearInventory.bind(this)
+        this.addItemSwitch = this.addItemSwitch.bind(this)
+        this.add = this.add.bind(this)
     }
 
     componentDidMount(){
         this.displayInventory();
     } //end componentDidMount
 
+    add(){
+        
+            this.props.history.push("/AddItem")
+        
+    }
     deleteItem(id){
         console.log('Delete item')
         ControllerDataServices.deleteItem(id)
@@ -44,11 +52,8 @@ class ShowInventory extends Component {
 
     addItemSwitch(){
         console.log('Add item button clicked')
-        .then(
-            this.props.history.push(`/AddItem`)
-        )
-
-    }//end addItemSwitch()
+        this.add()
+       }//end addItemSwitch()
 
     updateItemSwitch(){
         console.log('Update button clicked')
@@ -94,10 +99,11 @@ class ShowInventory extends Component {
                                 <td>{inventory.modelYear}</td>
                                 <td>{inventory.MSRP}</td>
                                 <td>{inventory.price}</td>
-                                <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Deleted item</button></td>
+                                <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
                                 <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
                                 <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
+                               
                             </tr>
                         )
                     }
