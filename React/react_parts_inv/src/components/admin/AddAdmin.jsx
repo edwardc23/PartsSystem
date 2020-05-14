@@ -59,7 +59,7 @@ class AddAdmin extends Component{
         }
         event.preventDefault()
         console.log(user)
-        //this.testP(user)
+        this.testP(user)
         // ControllerDataServices.check(user)
         // .then(value => {
         //     this.setState({test: value.data})
