@@ -6,6 +6,7 @@ class ShowInventory extends Component {
     constructor(props){
         super(props)
         this.state = {
+            //id: this.props.match.params.id,
             inventory: [],
             msg: null
             //msg: console.log(null)
@@ -19,7 +20,7 @@ class ShowInventory extends Component {
         this.displayInventory();
     } //end componentDidMount
 
-    deleteItem(){
+    deleteItem(id){
         console.log('Delete item')
         ControllerDataServices.deleteItem(id)
         .then(
@@ -54,7 +55,35 @@ class ShowInventory extends Component {
     render(){
         return(
             <div className="table-bordered">
-
+                <thead>
+                    <tr style={{textAlign: "center"}}>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Model</th>
+                        <th>Model Year</th>
+                        <th>MSRP</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.inventory.map(
+                            inventory =>
+                            <tr style={{textAlign: "center"}} key={inventory.id}>
+                                <td>{inventory.id}</td>
+                                <td>{inventory.name}</td>
+                                <td>{inventory.location}</td>
+                                <td>{inventory.model}</td>
+                                <td>{inventory.modelYear}</td>
+                                <td>{inventory.MSRP}</td>
+                                <td>{inventory.price}</td>
+                                <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Deleted item</button></td>
+                                <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
+                            </tr>
+                        )
+                    }
+                </tbody>
             </div>
         )
     }
