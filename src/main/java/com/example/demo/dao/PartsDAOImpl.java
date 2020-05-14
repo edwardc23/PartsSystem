@@ -74,5 +74,5 @@ public class PartsDAOImpl implements DAO{
         sesh = manager.unwrap(Session.class);
         sesh.saveOrUpdate(admin);
     }
-    
+
 }
