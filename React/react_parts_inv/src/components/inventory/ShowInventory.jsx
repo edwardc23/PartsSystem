@@ -36,6 +36,7 @@ class ShowInventory extends Component {
         .then(
             response =>{
                 this.displayInventory();
+                //this.props.history.push(`/inventory}`)
             }
         )
 
@@ -44,7 +45,7 @@ class ShowInventory extends Component {
     addItemSwitch(){
         console.log('Add item button clicked')
         .then(
-            this.props.history.push(`/UpdateItem`)
+            this.props.history.push(`/AddItem`)
         )
 
     }//end addItemSwitch()
@@ -52,7 +53,7 @@ class ShowInventory extends Component {
     updateItemSwitch(){
         console.log('Update button clicked')
         .then(
-            this.props.history.push(`/AddItem`)
+            this.props.history.push(`/UpdateItem`)
         )
     } //end updateItemSwitch()
 
@@ -64,7 +65,7 @@ class ShowInventory extends Component {
                 this.setState({inventory: response.data})
             }
         )
-        this.props.history.push(`/inventory}`)
+        //this.props.history.push(`/inventory}`)
     } //end displayInventory()
 
     render(){
@@ -95,8 +96,8 @@ class ShowInventory extends Component {
                                 <td>{inventory.price}</td>
                                 <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Deleted item</button></td>
                                 <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add New Item</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Add New Item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
                             </tr>
                         )
                     }

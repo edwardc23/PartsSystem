@@ -5,7 +5,6 @@ import com.example.demo.dao.CRUD;
 import com.example.demo.dao.DAO;
 import com.example.demo.entity.Admin;
 import com.example.demo.entity.Parts;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,15 +15,17 @@ import java.util.List;
 public class Controller {
     private final DAO dao;
 
-    @Autowired
-    public Controller(DAO dao) {this.dao = dao;}
+    public Controller(DAO dao) {
+        this.dao = dao;
+    }
+
 
     //grabs entire inventory listing
     @GetMapping("/grabInventory")
     public List<Parts> listInventory(){return dao.listInventory();}
 
     //retrieves a single item by ID
-    @GetMapping("/retrieveItem/{itemID}")
+    @GetMapping("/retrieveItem/{partID}")
     public Parts item(@PathVariable int partID){
         Parts item = dao.findID(partID);
         if(item == null){
@@ -37,11 +38,11 @@ public class Controller {
 
     //deletes entire inventory
     @DeleteMapping("/deleteStockList")
-    public String clearInventory(@PathVariable List<Parts> inventory){
-        if (inventory.size() == 0){
-            throw new RuntimeException("The stock list is already empty");
-        }
-        dao.clearInventory(inventory);
+    public String clearInventory(){
+//        if (inventory.size() == 0){
+//            throw new RuntimeException("The stock list is already empty");
+//        }
+        dao.clearInventory();
         return "The entire inventory has been wiped";
     }
 
@@ -57,18 +58,18 @@ public class Controller {
     public Parts addItem(@RequestBody Parts item){
         item.setId(0);
         dao.saveNew(item);
+        System.out.println(item);
         return item;
     }
 
     @PostMapping("/addAdmin")
     public Admin addAdmin(@RequestBody Admin admin){
+        admin.setId(0);
+        dao.saveAdmin(admin);
         System.out.println(admin);
-       CRUD.createUser(admin.getUserName(), admin.getPassword());
-//       admin.setUserName("Test");
-//       admin.setPassword("Psswd123");
-
-       return admin;
+        return admin;
     }
+
     @PostMapping("/checkAdmin")
     public String checker(@RequestBody Admin admin)
     {
@@ -83,7 +84,7 @@ public class Controller {
 //        return "Success";
 
     }
-    @DeleteMapping("/delete/{itemID}")
+    @DeleteMapping("/delete/{partID}")
     public String removeItem(@PathVariable int partID){
         Parts item = dao.findID(partID);
         if(item == null){
