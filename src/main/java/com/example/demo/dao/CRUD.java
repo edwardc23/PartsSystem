@@ -43,35 +43,35 @@ public class CRUD {
 
 
     }
-    public static void createParts(String partName,String location, String make, String model, String year,double msrp, double price) {
-
-        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Parts.class)
-                .buildSessionFactory();
-
-        //create a session this is for hibernate
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
-
-            System.out.println("Creating an employee object...");
-           Parts part = new Parts(partName,location,  make, model, year, msrp, price);
-
-
-            //start a transaction
-
-            System.out.println("Beginning transaction...");
-
-            //save the student object
-            session.save(part);
-
-            System.out.println("Saving the new employee...");
-
-            //commit the transaction
-            session.getTransaction().commit();
-            System.out.println("Done!");
-
-
-    }
+//    public static void createParts(String partName,String location, String make, String model, String year,double msrp, double price) {
+//
+//        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+//                .addAnnotatedClass(Parts.class)
+//                .buildSessionFactory();
+//
+//        //create a session this is for hibernate
+//        Session session = factory.getCurrentSession();
+//        session.beginTransaction();
+//
+//            System.out.println("Creating an employee object...");
+//           Parts part = new Parts(partName,location,  make, model, year, msrp, price);
+//
+//
+//            //start a transaction
+//
+//            System.out.println("Beginning transaction...");
+//
+//            //save the student object
+//            session.save(part);
+//
+//            System.out.println("Saving the new employee...");
+//
+//            //commit the transaction
+//            session.getTransaction().commit();
+//            System.out.println("Done!");
+//
+//
+//    }
     public static boolean checkUserAndPass(Admin admin)
     {
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")

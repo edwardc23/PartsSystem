@@ -21,7 +21,7 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public List<Parts> listInventory() {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> listQuery = sesh.createQuery("Entire item inventory:");
+        Query<Parts> listQuery = sesh.createQuery("from parts");
         return listQuery.getResultList();
     }
 
@@ -29,8 +29,9 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public void clearInventory(List<Parts> inventory) {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> clearQuery = sesh.createQuery("Clear entire inventory");
-        clearQuery.getResultList().clear();
+        Query<Parts> clearQuery = sesh.createQuery("truncate parts"); //query to clear inventory
+        //clearQuery.getResultList().clear();
+        clearQuery.getResultList();
     }
 
 
@@ -46,8 +47,8 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public void deleteID(int partID) {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> deleteQuery = sesh.createQuery("removing item from inventory with ID no.:");
-        deleteQuery.setParameter("item ID:", partID);
+        Query<Parts> deleteQuery = sesh.createQuery("delete from parts where id=:ID");
+        deleteQuery.setParameter("ID:", partID);
         deleteQuery.executeUpdate();
     }
 

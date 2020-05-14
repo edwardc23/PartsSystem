@@ -31,7 +31,7 @@ class Inventory extends Component {
             price: vals.price
         }
         ControllerDataServices.updateItem(item)
-        .then(() => this.props.history.push('/UpdateItem'))
+        .then(() => this.props.history.push(`/inventory`))
     }
     render(){
         let{id, name, location, make, model, modelYear, MSRP, price} = this.state
@@ -48,7 +48,7 @@ class Inventory extends Component {
                                 <Form>
                                     <fieldset className="form-group">
                                         <label>ID</label>
-                                        <Field className="form-contorl" type="text" name="id" disabled />
+                                        <Field className="form-control" type="text" name="id" disabled />
                                     </fieldset>
                                     <fieldset>
                                         <label>Name</label>
