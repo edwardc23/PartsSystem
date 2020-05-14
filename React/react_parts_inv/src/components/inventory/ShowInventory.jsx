@@ -40,7 +40,7 @@ class ShowInventory extends Component {
 
     clearInventory(){
         console.log('Wipe inventory')
-        ControllerDataServices.wipeInventory
+        ControllerDataServices.wipeInventory()
         .then(
             response =>{
                 this.displayInventory();
@@ -52,14 +52,13 @@ class ShowInventory extends Component {
 
     addItemSwitch(){
         console.log('Add item button clicked')
-        this.add()
+        this.props.history.push(`/AddItem`)
        }//end addItemSwitch()
 
     updateItemSwitch(){
         console.log('Update button clicked')
-        .then(
-            this.props.history.push(`/UpdateItem`)
-        )
+        this.props.history.push(`/UpdateItem`)
+     
     } //end updateItemSwitch()
 
     displayInventory(){
@@ -68,6 +67,7 @@ class ShowInventory extends Component {
         .then(
             response => {
                 this.setState({inventory: response.data})
+                console.log({inventory:response.data})
             }
         )
         //this.props.history.push(`/inventory}`)
@@ -75,39 +75,45 @@ class ShowInventory extends Component {
 
     render(){
         return(
-            <div className="table-bordered">
-                <thead>
-                    <tr style={{textAlign: "center"}}>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Model</th>
-                        <th>Model Year</th>
-                        <th>MSRP</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.state.inventory.map(
-                            inventory =>
-                            <tr style={{textAlign: "center"}} key={inventory.id}>
-                                <td>{inventory.id}</td>
-                                <td>{inventory.name}</td>
-                                <td>{inventory.location}</td>
-                                <td>{inventory.model}</td>
-                                <td>{inventory.modelYear}</td>
-                                <td>{inventory.MSRP}</td>
-                                <td>{inventory.price}</td>
-                                <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
-                                <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button></td>
-                               
-                            </tr>
-                        )
-                    }
-                </tbody>
+            <div className="container">
+               <h1 style={{textAlign:"center"}}>Inventory</h1><br></br>
+               <div className="jumbotron"  style={{backgroundColor: "black", color: "red"}}>
+
+                        <div className="table-bordered" style={{backgroundColor: "yellow"}}>
+                            <thead>
+                                <tr style={{textAlign: "center"}}>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Location</th>
+                                    <th>Model</th>
+                                    <th>Model Year</th>
+                                    <th>MSRP</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.inventory.map(
+                                        inventory =>
+                                        <tr style={{textAlign: "center"}} key={inventory.id}>
+                                            <td>{inventory.id}</td>
+                                            <td>{inventory.partName}</td>
+                                            <td>{inventory.location}</td>
+                                            <td>{inventory.model}</td>
+                                            <td>{inventory.year}</td>
+                                            <td>{inventory.msrp}</td>
+                                            <td>{inventory.price}</td>
+                                            <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
+                                            <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </div>
+
+                        <button className="btn btn-warning" onClick={()=> this.clearInventory()}>Wipe Inventory</button>
+                        <button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button>
+                </div>
             </div>
         )
     }

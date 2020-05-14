@@ -7,15 +7,17 @@ class Item extends Component {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            name: '',
+            partName: '',
             location: '',
             make: '',
             model: '',
-            modelYear:'',
-            MSRP:'',
+            year:'',
+            msrp:'',
             price: ''
         }
         //handles go here
+        this.handleChange = this.handleChange.bind(this)
+        this.addItem = this.addItem.bind(this)
     }
 
     handleChange(event){
@@ -27,12 +29,12 @@ class Item extends Component {
     addItem(){
         let item = {
             id: this.state.id,
-            name: this.name.name,
+            partName: this.state.partName,
             location: this.state.location,
             make: this.state.make,
             model: this.state.model,
-            modelYear: this.state.modelYear,
-            MSRP: this.state.MSRP,
+            year: this.state.year,
+            msrp: this.state.msrp,
             price: this.state.price
         }
         ControllerDataServices.addItem(item)
@@ -51,7 +53,7 @@ class Item extends Component {
                             </div>
                             <div>
                                 <label>Name:</label>
-                                <input className="form-control" type="text" name="name" onChange={this.handleChange}></input>
+                                <input className="form-control" type="text" name="partName" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>Location:</label>
@@ -67,11 +69,11 @@ class Item extends Component {
                             </div>
                             <div>
                                 <label>Model Year:</label>
-                                <input className="form-control" type="text" name="modelYear" onChange={this.handleChange}></input>
+                                <input className="form-control" type="text" name="year" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>MSRP:</label>
-                                <input className="form-control" type="text" name="MSRP" onChange={this.handleChange}></input>
+                                <input className="form-control" type="text" name="msrp" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>Price:</label>
