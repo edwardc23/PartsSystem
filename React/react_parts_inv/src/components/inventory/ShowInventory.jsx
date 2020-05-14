@@ -95,8 +95,8 @@ class ShowInventory extends Component {
                                 <td>{inventory.price}</td>
                                 <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Deleted item</button></td>
                                 <td><button className="btn btn-warning" onClick={()=> this.wipeInventory()}>Cleaned Inventory</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add New Item</button></td>
-                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Add New Item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button></td>
+                                <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
                             </tr>
                         )
                     }

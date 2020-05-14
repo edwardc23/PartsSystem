@@ -20,8 +20,8 @@ class RoutingComponent extends Component{
                         <Route exact path="/"><WelcomePage/></Route> />
                         <Route path="/login" component={Login} />
                         <Route path="/inventory" component={ShowInventory} />
-                        <Route path="AddItem" component={AddItem} />
-                        <Route path="UpdateItem" component={UpdateItem} />
+                        <Route path="/AddItem" component={AddItem} />
+                        <Route path="/UpdateItem" component={UpdateItem} />
                         <Route path ="/Test" component={Testcomponent}/>
                     </Switch>
                 <FooterComponent /> 

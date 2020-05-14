@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.entity.Admin;
 import com.example.demo.entity.Parts;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
+import javax.servlet.http.Part;
 import java.util.List;
 
 @Repository
@@ -21,17 +23,20 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public List<Parts> listInventory() {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> listQuery = sesh.createQuery("from parts");
+        Query<Parts> listQuery = sesh.createQuery("from Parts");
         return listQuery.getResultList();
     }
 
     @Override
     @Transactional
-    public void clearInventory(List<Parts> inventory) {
+    public void clearInventory() {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> clearQuery = sesh.createQuery("truncate parts"); //query to clear inventory
-        //clearQuery.getResultList().clear();
-        clearQuery.getResultList();
+//        Query myQuery = sesh.createQuery("from Parts");
+//        //sesh.clear();
+//        myQuery.getResultList().clear();
+        String hql = String.format("delete from Parts");
+        Query query = sesh.createQuery(hql);
+        query.executeUpdate();
     }
 
 
@@ -47,9 +52,12 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public void deleteID(int partID) {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> deleteQuery = sesh.createQuery("delete from parts where id=:ID");
-        deleteQuery.setParameter("ID:", partID);
-        deleteQuery.executeUpdate();
+//        Query<Parts> deleteQuery = sesh.createQuery("delete from Parts where id=:ID");
+//        deleteQuery.setParameter("ID:", partID);
+//        deleteQuery.executeUpdate();
+        Parts myParts = sesh.get(Parts.class, partID );
+        sesh.delete(myParts);
+        //sesh.clear();
     }
 
 
@@ -57,6 +65,14 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public void saveNew(Parts part) {
         sesh = manager.unwrap(Session.class);
-        sesh.save(part);
+        sesh.saveOrUpdate(part);
     }
+
+//    @Override
+//    @Transactional
+//    public void saveAdmin(Admin admin) {
+//        sesh = manager.unwrap(Session.class);
+//        sesh.saveOrUpdate(admin);
+//    }
+
 }
