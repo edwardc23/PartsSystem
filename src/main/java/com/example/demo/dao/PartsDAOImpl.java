@@ -29,9 +29,13 @@ public class PartsDAOImpl implements DAO{
     @Transactional
     public void clearInventory(List<Parts> inventory) {
         sesh = manager.unwrap(Session.class);
-        Query<Parts> clearQuery = sesh.createQuery("truncate parts"); //query to clear inventory
-        //clearQuery.getResultList().clear();
-        clearQuery.getResultList();
+        String stringQuery = "DELETE FROM parts";
+        Query query = sesh.createQuery(stringQuery);
+        query.executeUpdate();
+
+//        Query<Parts> clearQuery = sesh.createQuery("truncate parts"); //query to clear inventory
+//        clearQuery.getResultList().clear();
+//        clearQuery.getResultList();
     }
 
 
