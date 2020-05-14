@@ -9,6 +9,7 @@ import AddItem from '../inventory/AddItem'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ShowInventory from '../inventory/ShowInventory'
 
+import Testcomponent from '../../Testcomponent'
 class RoutingComponent extends Component{
     render(){
         return(
@@ -21,6 +22,7 @@ class RoutingComponent extends Component{
                         <Route path="/inventory" component={ShowInventory} />
                         <Route path="AddItem" component={AddItem} />
                         <Route path="UpdateItem" component={UpdateItem} />
+                        <Route path ="/Test" component={Testcomponent}/>
                     </Switch>
                 <FooterComponent /> 
             </ Router>

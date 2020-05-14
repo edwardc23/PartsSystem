@@ -70,10 +70,18 @@ public class Controller {
        return admin;
     }
     @PostMapping("/checkAdmin")
-    public boolean checker(@RequestBody Admin admin)
+    public String checker(@RequestBody Admin admin)
     {
-        System.out.println("Hello");
-       return CRUD.checkUserAndPass(admin);
+        if(CRUD.checkUserAndPass(admin))
+        {
+            return "Success";
+        }
+        else
+        {
+            return "Failure";
+        }
+//        return "Success";
+
     }
     @DeleteMapping("/delete/{itemID}")
     public String removeItem(@PathVariable int partID){
