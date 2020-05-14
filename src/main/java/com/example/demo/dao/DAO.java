@@ -11,5 +11,5 @@ public interface DAO {
     Parts findID (int partID);
     void deleteID (int partID);
     void saveNew(Parts part);
-//    void saveAdmin(Admin admin);
+    void saveAdmin(Admin admin);
 }

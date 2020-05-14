@@ -68,11 +68,11 @@ public class PartsDAOImpl implements DAO{
         sesh.saveOrUpdate(part);
     }
 
-//    @Override
-//    @Transactional
-//    public void saveAdmin(Admin admin) {
-//        sesh = manager.unwrap(Session.class);
-//        sesh.saveOrUpdate(admin);
-//    }
-
+    @Override
+    @Transactional
+    public void saveAdmin(Admin admin) {
+        sesh = manager.unwrap(Session.class);
+        sesh.saveOrUpdate(admin);
+    }
+    
 }

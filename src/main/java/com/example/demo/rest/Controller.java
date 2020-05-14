@@ -62,13 +62,13 @@ public class Controller {
         return item;
     }
 
-//    @PostMapping("/addAdmin")
-//    public Admin addAdmin(@RequestBody Admin admin){
-//        admin.setId(0);
-//        loginDAO.saveAdmin(admin);
-//        System.out.println(admin);
-//        return admin;
-//    }
+    @PostMapping("/addAdmin")
+    public Admin addAdmin(@RequestBody Admin admin){
+        admin.setId(0);
+        dao.saveAdmin(admin);
+        System.out.println(admin);
+        return admin;
+    }
 
     @PostMapping("/checkAdmin")
     public String checker(@RequestBody Admin admin)
