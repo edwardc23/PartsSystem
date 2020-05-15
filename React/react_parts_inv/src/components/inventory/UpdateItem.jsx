@@ -52,7 +52,7 @@ class Inventory extends Component {
                                     </fieldset>
                                     <fieldset>
                                         <label>Name</label>
-                                        <Field className="form-control" type="text" name="name" />
+                                        <Field className="form-control" type="text" name="partName" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Location</label>
@@ -68,11 +68,11 @@ class Inventory extends Component {
                                     </fieldset>
                                     <fieldset>
                                         <label>Model Year</label>
-                                        <Field className="form-control" type="text" name="modelYear" />
+                                        <Field className="form-control" type="text" name="year" />
                                     </fieldset>
                                     <fieldset>
                                         <label>MSRP</label>
-                                        <Field className="form-control" type="text" name="MSRP" />
+                                        <Field className="form-control" type="text" name="msrp" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Price</label>
