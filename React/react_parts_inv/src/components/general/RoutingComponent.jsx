@@ -23,7 +23,7 @@ class RoutingComponent extends Component{
                         <Route path="/addAdmin" component={AddAdmin} />
                         <Route path="/inventory" component={ShowInventory} />
                         <Route path="/AddItem" component={AddItem} />
-                        <Route path="/UpdateItem" component={UpdateItem} />
+                        <Route path="/UpdateItem/:id/:name/:location/:make/:model/:year/:msrp/:price" component={UpdateItem} />
                         <Route path ="/Test" component={Testcomponent}/>
                     </Switch>
                 <FooterComponent /> 
