@@ -55,9 +55,9 @@ class ShowInventory extends Component {
         this.props.history.push(`/AddItem`)
        }//end addItemSwitch()
 
-    updateItemSwitch(){
+    updateItemSwitch(id, name, location, make, model, year, msrp, price){
         console.log('Update button clicked')
-        this.props.history.push(`/UpdateItem`)
+        this.props.history.push(`/UpdateItem/${id}/${name}/${location}/${make}/${model}/${year}/${msrp}/${price}`)
      
     } //end updateItemSwitch()
 
@@ -80,13 +80,13 @@ class ShowInventory extends Component {
                <button className='btn btn-success' type="button"><Link to="/logout">Logout</Link></button>
                <br></br>
                <div className="jumbotron"  style={{backgroundColor: "black", color: "red"}}>
-
                         <div className="table-bordered" style={{backgroundColor: "yellow"}}>
                             <thead>
                                 <tr style={{textAlign: "center"}}>
-                                    <th>ID</th>
+                                    
                                     <th>Name</th>
                                     <th>Location</th>
+                                    <th>Make</th>
                                     <th>Model</th>
                                     <th>Model Year</th>
                                     <th>MSRP</th>
@@ -98,15 +98,21 @@ class ShowInventory extends Component {
                                     this.state.inventory.map(
                                         inventory =>
                                         <tr style={{textAlign: "center"}} key={inventory.id}>
-                                            <td>{inventory.id}</td>
                                             <td>{inventory.partName}</td>
                                             <td>{inventory.location}</td>
+                                            <td>{inventory.make}</td>
                                             <td>{inventory.model}</td>
                                             <td>{inventory.year}</td>
                                             <td>{inventory.msrp}</td>
                                             <td>{inventory.price}</td>
                                             <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
-                                            <td><button className="btn btn-success" onClick={()=> this.updateItemSwitch()}>Update existing item</button></td>
+                                            <td>
+                                                <button 
+                                                    className="btn btn-success" 
+                                                    onClick={()=> this.updateItemSwitch(inventory.id, inventory.partName, inventory.location, inventory.make, inventory.model, inventory.year, inventory.msrp, inventory.price)}>
+                                                    Update existing item
+                                                </button>
+                                            </td>
                                         </tr>
                                     )
                                 }

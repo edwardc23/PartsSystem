@@ -8,13 +8,13 @@ class Inventory extends Component {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            name: '',
-            location: '',
-            make: '',
-            model: '',
-            modelYear:'',
-            MSRP:'',
-            price: ''
+            partName: this.props.match.params.name,
+            location: this.props.match.params.location,
+            make: this.props.match.params.make,
+            model: this.props.match.params.model,
+            year: this.props.match.params.year,
+            msrp: this.props.match.params.msrp,
+            price: this.props.match.params.price
         }
         this.onSubmit = this.onSubmit.bind(this)
     }
@@ -22,24 +22,24 @@ class Inventory extends Component {
     onSubmit(vals){
         let item = {
             id: this.state.id,
-            name: vals.name,
+            partName: vals.partName,
             location: vals.location,
             make: vals.make,
             model: vals.model,
-            modelYear: vals.modelYear,
-            MSRP: vals.MSRP,
+            year: vals.year,
+            msrp: vals.msrp,
             price: vals.price
         }
         ControllerDataServices.updateItem(item)
         .then(() => this.props.history.push(`/inventory`))
     }
     render(){
-        let{id, name, location, make, model, modelYear, MSRP, price} = this.state
+        let{id, partName, location, make, model, year, msrp, price} = this.state
         return(
-            <div>
-                <h2>Update Employee</h2>
+            <div  className='jumbotron' style={{backgroundColor: 'gray'}}>
+                <h2>Update Part</h2>
                 <Formik
-                        initVals={{id, name, location, make, model, modelYear, MSRP, price}}
+                        initialValues={{id, partName, location, make, model, year, msrp, price}}
                         onSubmit={this.onSubmit}
                         enableReinitialize={true} //wtf?
                     >
@@ -52,7 +52,7 @@ class Inventory extends Component {
                                     </fieldset>
                                     <fieldset>
                                         <label>Name</label>
-                                        <Field className="form-control" type="text" name="name" />
+                                        <Field className="form-control" type="text" name="partName" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Location</label>
@@ -68,11 +68,11 @@ class Inventory extends Component {
                                     </fieldset>
                                     <fieldset>
                                         <label>Model Year</label>
-                                        <Field className="form-control" type="text" name="modelYear" />
+                                        <Field className="form-control" type="text" name="year" />
                                     </fieldset>
                                     <fieldset>
                                         <label>MSRP</label>
-                                        <Field className="form-control" type="text" name="MSRP" />
+                                        <Field className="form-control" type="text" name="msrp" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Price</label>
