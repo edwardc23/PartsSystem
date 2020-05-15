@@ -2,6 +2,7 @@ package com.example.demo.dao;
 
 
 import com.example.demo.entity.Admin;
+import com.example.demo.entity.Assets;
 import com.example.demo.entity.Parts;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,10 +15,10 @@ public class CRUD {
 
 
 
-    public static void createUser(String userName, String password) {
+    public static void createAssets(String part, int amountOf,double cost, double totalMSRP, double totalPrice) {
 
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Admin.class)
+                .addAnnotatedClass(Assets.class)
                 .buildSessionFactory();
 
         //create a session this is for hibernate
@@ -25,7 +26,7 @@ public class CRUD {
         session.beginTransaction();
 
             System.out.println("Creating an employee object...");
-           Admin admin= new Admin(userName,password);
+           Assets asset= new Assets(part, amountOf, cost, totalMSRP, totalPrice);
 
 
             //start a transaction
@@ -33,9 +34,9 @@ public class CRUD {
             System.out.println("Beginning transaction...");
 
             //save the student object
-            session.save(admin);
+            session.save(asset);
 
-            System.out.println("Saving the new employee...");
+            System.out.println("Saving the new Asset...");
 
             //commit the transaction
             session.getTransaction().commit();
