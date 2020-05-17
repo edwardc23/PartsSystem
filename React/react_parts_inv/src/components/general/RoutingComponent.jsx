@@ -8,7 +8,7 @@ import UpdateItem from '../inventory/UpdateItem'
 import AddItem from '../inventory/AddItem'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ShowInventory from '../inventory/ShowInventory'
-
+import Logout from '../admin/Logout'
 import Testcomponent from '../../Testcomponent'
 import AddAdmin from '../admin/AddAdmin'
 class RoutingComponent extends Component{
@@ -24,6 +24,7 @@ class RoutingComponent extends Component{
                         <Route path="/inventory" component={ShowInventory} />
                         <Route path="/AddItem" component={AddItem} />
                         <Route path="/UpdateItem/:id/:name/:location/:make/:model/:year/:msrp/:price" component={UpdateItem} />
+                        <Route path="/logout" component={Logout} />
                         <Route path ="/Test" component={Testcomponent}/>
                     </Switch>
                 <FooterComponent /> 

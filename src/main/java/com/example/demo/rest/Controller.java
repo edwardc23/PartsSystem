@@ -4,6 +4,7 @@ package com.example.demo.rest;
 import com.example.demo.dao.CRUD;
 import com.example.demo.dao.DAO;
 import com.example.demo.entity.Admin;
+import com.example.demo.entity.Assets;
 import com.example.demo.entity.Parts;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,9 @@ public class Controller {
     @GetMapping("/grabInventory")
     public List<Parts> listInventory(){return dao.listInventory();}
 
+    @GetMapping("/grabAssets")
+    public List<Assets> listAssets(){return dao.listAssets();}
+
     //retrieves a single item by ID
     @GetMapping("/retrieveItem/{partID}")
     public Parts item(@PathVariable int partID){
@@ -34,7 +38,24 @@ public class Controller {
 
         return item;
     }
+    //retrieves a single item by ID
+    @GetMapping("/purchaseItem/{partID}")
+    public Parts puchase(@PathVariable int partID){
+        List<Parts> partsList= dao.listInventory();
+        double total=0;
+        for(Parts a: partsList)
+        {
+            total=total+a.getPrice();
+        }
+        Parts item = dao.findID(partID);
+        dao.purchase(item,total);
+        if(item == null){
+            throw new RuntimeException("Couldn't find an item in inventory with ID:" + partID);
+        }
 
+
+        return item;
+    }
 
     //deletes entire inventory
     @DeleteMapping("/deleteStockList")

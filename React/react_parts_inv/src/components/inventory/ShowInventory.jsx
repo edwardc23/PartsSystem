@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component } from 'react';
 import ControllerDataServices from '../../services-HTTP/ControllerDataServices';
-
+import {Link} from 'react-router-dom'
 class ShowInventory extends Component {
     constructor(props){
         super(props)
@@ -76,7 +76,9 @@ class ShowInventory extends Component {
     render(){
         return(
             <div className="container">
-               <h1 style={{textAlign:"center"}}>Inventory</h1><br></br>
+               <h1 style={{textAlign:"center"}}>Inventory</h1>
+               <button className='btn btn-success' type="button"><Link to="/logout">Logout</Link></button>
+               <br></br>
                <div className="jumbotron"  style={{backgroundColor: "black", color: "red"}}>
                         <div className="table-bordered" style={{backgroundColor: "yellow"}}>
                             <thead>
