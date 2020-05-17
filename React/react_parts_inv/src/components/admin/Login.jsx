@@ -21,7 +21,7 @@ class Login extends Component{
     testP(){
         if(this.state.test==='Success')
         {
-            this.props.history.push("/inventory")
+            this.props.history.push("/landingPage")
         }
     }
 

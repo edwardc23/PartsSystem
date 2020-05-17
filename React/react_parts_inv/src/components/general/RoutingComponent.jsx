@@ -11,6 +11,9 @@ import ShowInventory from '../inventory/ShowInventory'
 import Logout from '../admin/Logout'
 import Testcomponent from '../../Testcomponent'
 import AddAdmin from '../admin/AddAdmin'
+import Assets from '../inventory/Assets'
+import AboutComponent from './AboutComponent'
+import LandingPage from './LandingPage'
 class RoutingComponent extends Component{
     render(){
         return(
@@ -20,11 +23,15 @@ class RoutingComponent extends Component{
                     <Switch>
                         <Route exact path="/"><WelcomePage/></Route> />
                         <Route path="/login" component={Login} />
+                        <Route path="/logout" component={Logout}/>
+                        <Route path="/landingPage" component={LandingPage} />
+                        <Route path="/about" component={AboutComponent}/>
+                        <Route path="/assets" component={Assets} />
+                        <Route path="/about" component={AboutComponent}/>
                         <Route path="/addAdmin" component={AddAdmin} />
                         <Route path="/inventory" component={ShowInventory} />
                         <Route path="/AddItem" component={AddItem} />
                         <Route path="/UpdateItem/:id/:name/:location/:make/:model/:year/:msrp/:price" component={UpdateItem} />
-                        <Route path="/logout" component={Logout} />
                         <Route path ="/Test" component={Testcomponent}/>
                     </Switch>
                 <FooterComponent /> 
