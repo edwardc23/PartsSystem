@@ -76,11 +76,9 @@ class ShowInventory extends Component {
     render(){
         return(
             <div className="container">
-               <h1 style={{textAlign:"center"}}>Inventory</h1>
-               <button className='btn btn-success' type="button"><Link to="/logout">Logout</Link></button>
-               <br></br>
-               <div className="jumbotron"  style={{backgroundColor: "black", color: "red"}}>
-                        <div className="table-bordered" style={{backgroundColor: "yellow"}}>
+               <h1 style={{textAlign:"center"}}>Inventory</h1><br></br><br></br>
+               <div className="jumbotron jumbo" >
+                        <div className="table-bordered table" >
                             <thead>
                                 <tr style={{textAlign: "center"}}>
                                     
@@ -108,10 +106,10 @@ class ShowInventory extends Component {
                                             <br></br>
                                             <br></br>
                                             <br></br>
-                                            <td><button className="btn btn-warning" onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
+                                            <td><button className="btn btn-link text-input" style={{color:"black"}} onClick={()=> this.deleteItem(inventory.id)}>Delete item</button></td>
                                             <td>
                                                 <button 
-                                                    className="btn btn-success" 
+                                                    className="btn btn-link text-input" style={{color:"black"}}
                                                     onClick={()=> this.updateItemSwitch(inventory.id, inventory.partName, inventory.location, inventory.make, inventory.model, inventory.year, inventory.msrp, inventory.price)}>
                                                     Update existing item
                                                 </button>
@@ -122,8 +120,10 @@ class ShowInventory extends Component {
                             </tbody>
                         </div>
                         <br></br>
-                        <button className="btn btn-warning" onClick={()=> this.clearInventory()}>Wipe Inventory</button>
-                        <button className="btn btn-success" onClick={()=> this.addItemSwitch()}>Add new item</button>
+                        <button className="btn btn-link text-input" style={{color:"black"}} onClick={()=> this.clearInventory()}>Wipe Inventory</button>
+                        <br></br>
+                        <br></br>
+                        <button className="btn btn-link text-input" style={{color:"black"}} onClick={()=> this.addItemSwitch()}>Add new item</button>
                 </div>
             </div>
         )

@@ -36,8 +36,8 @@ class Inventory extends Component {
     render(){
         let{id, partName, location, make, model, year, msrp, price} = this.state
         return(
-            <div  className='jumbotron' style={{backgroundColor: 'gray'}}>
-                <h2>Update Part</h2>
+            <div  className='jumbotron table'>
+                <h2>Update Part</h2> <br></br> <br></br>
                 <Formik
                         initialValues={{id, partName, location, make, model, year, msrp, price}}
                         onSubmit={this.onSubmit}
@@ -48,37 +48,39 @@ class Inventory extends Component {
                                 <Form>
                                     <fieldset className="form-group">
                                         <label>ID</label>
-                                        <Field className="form-control" type="text" name="id" disabled />
+                                        <Field className="form-control text-input" type="text" name="id" disabled />
                                     </fieldset>
                                     <fieldset>
                                         <label>Name</label>
-                                        <Field className="form-control" type="text" name="partName" />
+                                        <Field className="form-control text-input" type="text" name="partName" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Location</label>
-                                        <Field className="form-control" type="text" name="location" />
+                                        <Field className="form-control text-input" type="text" name="location" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Make</label>
-                                        <Field className="form-control" type="text" name="make" />
+                                        <Field className="form-control text-input" type="text" name="make" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Model</label>
-                                        <Field className="form-control" type="text" name="model" />
+                                        <Field className="form-control text-input" type="text" name="model" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Model Year</label>
-                                        <Field className="form-control" type="text" name="year" />
+                                        <Field className="form-control text-input" type="text" name="year" />
                                     </fieldset>
                                     <fieldset>
                                         <label>MSRP</label>
-                                        <Field className="form-control" type="text" name="msrp" />
+                                        <Field className="form-control text-input" type="text" name="msrp" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Price</label>
-                                        <Field className="form-control" type="text" name="price" />
+                                        <Field className="form-control text-input" type="text" name="price" />
                                     </fieldset>
-                                    <button className="btn btn-success" type="submit">Save</button>
+                                    <br></br>
+                                    <br></br>
+                                    <button className="btn btn-link text-input" style={{color:"black"}} type="submit">Save</button>
                                 </Form>
                             )
                         } 

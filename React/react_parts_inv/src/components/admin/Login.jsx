@@ -58,11 +58,11 @@ class Login extends Component{
         return(
             <form onSubmit={this.handleSubmit}>
                 <p>Username:</p>
-                <input type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
+                <input type="text" className="text-input" value={this.state.username} onChange={this.handleUsernameChange}/>
                 <p>Password:</p>
-                <input type="text"value={this.state.password} onChange={this.handlePasswordChange}/>
+                <input type="text" className="text-input" value={this.state.password} onChange={this.handlePasswordChange}/>
                 <br></br>
-                <button >Submit</button>
+                <button className='btn btn-link'>Submit</button>
                 
             </form>
             
