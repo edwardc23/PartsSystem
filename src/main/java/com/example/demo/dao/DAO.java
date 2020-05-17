@@ -14,5 +14,6 @@ public interface DAO {
     void deleteID (int partID);
     void saveNew(Parts part);
     void saveAdmin(Admin admin);
-    void purchase(Parts part, double price);
+    void purchase(Parts part, int ID);
+    boolean checkUserAndPass(Admin admin);
 }
