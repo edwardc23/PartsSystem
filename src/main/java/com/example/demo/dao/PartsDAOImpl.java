@@ -42,8 +42,6 @@ public class PartsDAOImpl implements DAO{
     @Override
     @Transactional
     public void clearInventory() {
-        sesh = manager.unwrap(Session.class);
-//
         deleteAssetsAndInventory();
     }
 
@@ -110,7 +108,7 @@ public class PartsDAOImpl implements DAO{
                 session.beginTransaction();
                 double s = a.getProfit();
                 String q="update Assets set Profit="+s+"";
-                session.createQuery(q).executeUpdate(); 
+                session.createQuery(q).executeUpdate();
                 session.getTransaction().commit();
                 factory.close();
 
