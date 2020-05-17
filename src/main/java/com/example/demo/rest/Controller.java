@@ -39,16 +39,12 @@ public class Controller {
         return item;
     }
     //retrieves a single item by ID
-    @GetMapping("/purchaseItem/{partID}")
-    public Parts puchase(@PathVariable int partID){
+    @PutMapping("/purchaseItem/{partID}")
+    public Parts puchaseItem(@PathVariable int partID){
         List<Parts> partsList= dao.listInventory();
-        double total=0;
-        for(Parts a: partsList)
-        {
-            total=total+a.getPrice();
-        }
+
         Parts item = dao.findID(partID);
-        dao.purchase(item,total);
+        dao.purchase(item,partID);
         if(item == null){
             throw new RuntimeException("Couldn't find an item in inventory with ID:" + partID);
         }

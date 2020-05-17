@@ -15,35 +15,35 @@ public class CRUD {
 
 
 
-    public static void createAssets(String part, int amountOf,double cost, double totalMSRP, double totalPrice) {
-
-        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Assets.class)
-                .buildSessionFactory();
-
-        //create a session this is for hibernate
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
-
-            System.out.println("Creating an employee object...");
-           Assets asset= new Assets(part, amountOf, cost, totalMSRP, totalPrice);
-
-
-            //start a transaction
-
-            System.out.println("Beginning transaction...");
-
-            //save the student object
-            session.save(asset);
-
-            System.out.println("Saving the new Asset...");
-
-            //commit the transaction
-            session.getTransaction().commit();
-            System.out.println("Done!");
-
-
-    }
+//    public static void createAssets(String part, int amountOf,double cost, double totalMSRP, double totalPrice) {
+//
+//        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+//                .addAnnotatedClass(Assets.class)
+//                .buildSessionFactory();
+//
+//        //create a session this is for hibernate
+//        Session session = factory.getCurrentSession();
+//        session.beginTransaction();
+//
+//            System.out.println("Creating an employee object...");
+//           Assets asset= new Assets(part, amountOf, cost, totalMSRP, totalPrice);
+//
+//
+//            //start a transaction
+//
+//            System.out.println("Beginning transaction...");
+//
+//            //save the student object
+//            session.save(asset);
+//
+//            System.out.println("Saving the new Asset...");
+//
+//            //commit the transaction
+//            session.getTransaction().commit();
+//            System.out.println("Done!");
+//
+//
+//    }
 //    public static void createParts(String partName,String location, String make, String model, String year,double msrp, double price) {
 //
 //        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
