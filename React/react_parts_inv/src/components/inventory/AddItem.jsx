@@ -49,38 +49,38 @@ class Item extends Component {
                     <form onSubmit={this.addItem}>
                             <div className="form-group">
                                 <label>ID:</label>
-                                <input className="form-control" type="text" value={this.state.id} disabled></input>
+                                <input className="form-control table" type="text" value={this.state.id} disabled></input>
                             </div>
                             <div>
                                 <label>Name:</label>
-                                <input className="form-control" type="text" name="partName" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="partName" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>Location:</label>
-                                <input className="form-control" type="text" name="location" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="location" onChange={this.handleChange}></input>
                             </div>       
                             <div>
                                 <label>Make:</label>
-                                <input className="form-control" type="text" name="make" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="make" onChange={this.handleChange}></input>
                             </div>      
                             <div>
                                 <label>Model:</label>
-                                <input className="form-control" type="text" name="model" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="model" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>Model Year:</label>
-                                <input className="form-control" type="text" name="year" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="year" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>MSRP:</label>
-                                <input className="form-control" type="text" name="msrp" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="msrp" onChange={this.handleChange}></input>
                             </div>
                             <div>
                                 <label>Price:</label>
-                                <input className="form-control" type="text" name="price" onChange={this.handleChange}></input>
+                                <input className="form-control table" type="text" name="price" onChange={this.handleChange}></input>
                             </div>
                             <br/><br/>
-                            <button className="btn btn-success" type="submit">Submit</button><br/><br/>
+                            <button className="btn btn-link text-input" style={{color:"black"}} type="submit">Submit</button><br/><br/>
                         </form>
                 </div>
             </div>

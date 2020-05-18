@@ -5,14 +5,23 @@ class ControllerDataServices {
     updateItem(item){
         return axios.put(`http://localhost:8080/update`,item);
     }
+
+    purchaseItem(itemID){
+        return axios.put(`http://localhost:8080/purchaseItem/${itemID}`)
+    }
     //________________________________________________________________________
     
     //GET requests
     listInventory(){
         return axios.get(`http://localhost:8080/grabInventory`);
     }
+
     getItem(itemID){
         return axios.get(`http://localhost:8080/retrieveItem/${itemID}`);
+    }
+
+    grabAssets(){
+        return axios.get(`http://localhost:8080/grabAssets`);
     }
     //__________________________________________________________________________
 

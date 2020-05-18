@@ -1,17 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 function Logout() {
     return(
-        <div className="">
-
-            <div>
-                <h1>Thank you for using The Inventory Tracker</h1>
-                <br></br>
-            </div>
-
+        <div className="logout">
+            <button className='btn btn-link' style={{color: "black", textAlign: "right"}} type="button"><Link to="/login">Logout</Link></button>
         </div>
     )
-
 }
 export default Logout

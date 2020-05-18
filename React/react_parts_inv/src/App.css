@@ -1,4 +1,5 @@
 .App {
+  background-image: linear-gradient(pink,teal);
   text-align: center;
 }
 
@@ -14,7 +15,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,12 +33,33 @@
 }
 
 .header {
+  background-image: linear-gradient(coral, pink);
   height: 100px;
   margin-bottom:  15px;
   font-size: 30px;
   justify-content: center;
   padding: 20px;
 }
+
+.jumbo{
+  background-image: repeating-linear-gradient(turquoise, pink);
+}
+
+.logout {
+  height: 50px;
+  font-size: 15px;
+  justify-content: right;
+  padding: 10px;
+}
+
+.table {
+  background-image: linear-gradient(pink, mediumslateblue);
+}
+
+.text-input {
+  background-image: linear-gradient(mediumslateblue,turquoise );
+}
+
 
 @keyframes App-logo-spin {
   from {
