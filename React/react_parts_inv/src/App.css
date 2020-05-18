@@ -32,18 +32,6 @@
   margin-top: 41%;
 }
 
-.jumbo{
-  background-image: repeating-linear-gradient(turquoise, pink);
-}
-
-.text-input {
-  background-image: linear-gradient(mediumslateblue,turquoise );
-}
-
-.table {
-  background-image: linear-gradient(pink, mediumslateblue);
-}
-
 .header {
   background-image: linear-gradient(coral, pink);
   height: 100px;
@@ -52,6 +40,26 @@
   justify-content: center;
   padding: 20px;
 }
+
+.jumbo{
+  background-image: repeating-linear-gradient(turquoise, pink);
+}
+
+.logout {
+  height: 50px;
+  font-size: 15px;
+  justify-content: right;
+  padding: 10px;
+}
+
+.table {
+  background-image: linear-gradient(pink, mediumslateblue);
+}
+
+.text-input {
+  background-image: linear-gradient(mediumslateblue,turquoise );
+}
+
 
 @keyframes App-logo-spin {
   from {
