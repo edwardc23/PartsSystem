@@ -1,7 +1,6 @@
 package com.example.demo.rest;
 
 
-import com.example.demo.dao.CRUD;
 import com.example.demo.dao.DAO;
 import com.example.demo.entity.Admin;
 import com.example.demo.entity.Assets;
@@ -90,7 +89,7 @@ public class Controller {
     @PostMapping("/checkAdmin")
     public String checker(@RequestBody Admin admin)
     {
-        if(CRUD.checkUserAndPass(admin))
+        if(dao.checkUserAndPass(admin))
         {
             return "Success";
         }

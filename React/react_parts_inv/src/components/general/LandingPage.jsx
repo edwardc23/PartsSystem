@@ -9,7 +9,7 @@ function LandingPage(){
             <h2> Landing Page</h2>
             <br></br>
             <button className='btn btn-link' style={{color: "black"}} type="button"><Link to="/inventory">Go to inventory</Link></button>
-            <button className='btn btn-link' style={{color: "black"}} type="button"><Link to="/about">About Neal Rigga Services</Link></button>
+            <button className='btn btn-link' style={{color: "black"}} type="button"><Link to="/about">About Tyson and Cochran Services</Link></button>
             <button className='btn btn-link' style={{color: "black"}} type="button"><Link to="/assets">See our assets</Link></button>
         </div>
     )

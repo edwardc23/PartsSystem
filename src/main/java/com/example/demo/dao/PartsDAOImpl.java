@@ -136,6 +136,7 @@ public class PartsDAOImpl implements DAO{
         sesh = manager.unwrap(Session.class);
         Assets a = null;
         List<Assets> list=listAssets();
+
         for(int index=0;index<list.size();index++){
             if(list.get(index).getPart().equals(p.getPartName())){
                 a = sesh.get(Assets.class, index+1 );
@@ -173,7 +174,7 @@ public class PartsDAOImpl implements DAO{
         factory.close();
         return  check(info,admin);
     }
-    public static boolean check(List<Admin>e, Admin admin)
+    public  boolean check(List<Admin>e, Admin admin)
     {
 
         for(Admin a:e)

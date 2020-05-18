@@ -129,7 +129,8 @@ class ShowInventory extends Component {
                                                         Update existing item
                                                     </button>
                                                 </td>
-                                                <td><button className="btn btn-link text-input" style={{color:"black"}} onClick={()=> this.purchaseItem(inventory.id)}>Purchase</button></td>
+                                                <td><button className="btn btn-link text-input" style={{color:"black"}} onClick={()=> this.purchaseItem(inventory.id)}>Buy</button></td>
+                                              
                                             </tr>
                                         )
                                     }

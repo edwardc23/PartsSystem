@@ -43,6 +43,7 @@
 
 .jumbo{
   background-image: repeating-linear-gradient(turquoise, pink);
+  
 }
 
 .logout {
@@ -54,6 +55,7 @@
 
 .table {
   background-image: linear-gradient(pink, mediumslateblue);
+  
 }
 
 .text-input {
